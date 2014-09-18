@@ -3,6 +3,10 @@ from mock import patch, Mock
 from nose.tools import eq_, raises
 
 
+from django.conf import settings
+settings.configure()
+global_settings.configured = True
+
 @patch('django.conf.settings', global_settings)
 def test_patch_params():
     from django_elasticache.memcached import ElastiCache
